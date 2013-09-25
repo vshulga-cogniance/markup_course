@@ -1,0 +1,79 @@
+$text_color: #333
+
+$form_widthes: 307px, 724px // correspond to small and big forms
+$form_sizes: small, big
+
+$sighin_form_height: 345px
+$form_margin: 10px
+
+$icons: sprite_map("icons/*.png")
+$icon_names: drl, fsb, ggl, rss, twt
+
+label
+  color: $text-color
+  font-family: "PTSans", sans-serif
+  font-size: 18px
+  display: block
+
+input
+  +box-shadow(inset 0 1px 5px rgba(0,0,0,.48))
+
+.signin
+  margin: 10px
+  border: 1px solid #fff
+  background-color: #ebebeb
+  +border-radius(8px)
+  +background-clip(padding-box)
+  +box-shadow(0 1px 20px rgba(0,0,0,.29))
+  & .signin__caption
+    color: #ebebeb
+    font-size: 16px
+    font-weight: bold
+    height: 40px
+    line-height: 40px
+    text-align: center
+    +background-image(linear-gradient(bottom, #6559b0 0%, #79a9be 100%))
+    +border-radius(8px 8px 0 0)
+  & .signin__button
+    color: #fd856b
+    font-family: "PTSans", sans-serif
+    font-size: 28px
+    font-weight: bold
+    width: nth($form_widthes, 1) - 2 * $form_margin
+    height: 66px
+    float: left
+    +text-shadow(0 1px 1px rgba(255,255,255,.82))
+  label
+    line-height: 40px
+  input
+    height: 40px
+    margin-bottom: 20px
+    font-size: 18px
+  @each $size in $form_sizes
+    $i: index($form_sizes, $size)
+    $width: nth($form_widthes, $i)
+    &.#{$size}
+      width: $width
+      height: $sighin_form_height
+      & .signin__form
+        width: $width - 2 * $form_margin
+        margin: 0 $form_margin
+      & input
+        width: $width * 0.85
+      & .signin__separator
+        width: $width - 2 * $form_margin
+        margin: 0 0 10px 0
+
+.icons
+  float: right
+  list-style-type: none
+  & .icon
+    float: left
+
+@each $icon in $icon_names
+  .icon_#{$icon}
+    +sized-sprite($icons, $icon)
+    display: block
+    margin: 0 5px
+    &:hover
+      +sized-sprite($icons, #{$icon}_hover)

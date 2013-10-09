@@ -1,0 +1,92 @@
+@include max-screen(320px)  {
+  .header {
+    .header-logo {
+      .header-logo-img {
+        height: 20px;
+        width: 20px;
+        background-image: image_url("pen_320.png");
+      }
+      .header-logo-text {
+        font-size: 16px;
+      }
+    }
+    .header-moto {
+      font-size:8px;
+      width: 120px;
+    }
+  } 
+
+  .nav-menu {
+    .nav-menu-item {
+      width: 55px;
+      .nav-menu-item-link {
+        font-size: 13px;
+        font-weight: bold;
+        margin-right: 3px;
+      }
+    }
+    .nav-menu-search {
+      margin-right: 5px;
+      padding-right: 20px;
+      background-image: image_url("search_320.png");
+    }
+  }
+  .content {
+    .content-intro-text {
+      font-size: 11px;
+      font-weight: bold;
+      padding: 5px;
+    }
+    .content-intro-more {
+      font-size: 9px;
+      padding: 3px 15px;
+    }
+    .content-recent {
+      width: 50%;
+      .content-recent-header {
+        font-size: 13px;
+        padding: 2px;
+      }
+      .content-recent-text {
+        font-size: 10px;
+        padding: 5px 4px;
+      }
+    }
+    .content-work-story {
+      margin: 5px 0;
+      width: 50%;
+      .content-work-story-header {
+        font-size: 13px;
+        padding: 2px;
+      }
+      .content-work-story-text {
+        font-size: 10px;
+        padding: 5px 4px;
+      }
+    }
+    @for $i from 1 through 3 {
+      $file_name: "story#{$i}_320.png";
+      .content-work-story-img.img#{$i} {
+        background-image: image_url($file_name);
+        height: image_height($file_name);
+        width: image_width($file_name);
+      }
+    }
+    .content-about, .content-settings, .content-camera, .content-boxinit {
+      float: left;
+      width: 48%;
+      height: 120px;
+    }
+    .content-about, .content-boxinit {
+      font-size: 9px;
+    }
+  }
+  .footer {
+    .footer-header {
+      margin: 10px 0;
+    }
+    .footer-text {
+      font-size: 8px;
+    }
+  }
+}

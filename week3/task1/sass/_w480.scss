@@ -1,0 +1,96 @@
+@include max-screen(480px)  {
+  .header {
+    height: 35px;
+    .header-logo {
+      .header-logo-img {
+        height: 25px;
+        width: 25px;
+        background-image: image_url("pen_320.png");
+      }
+      .header-logo-text {
+        margin-left: 3px;
+        font-size: 18px;
+      }
+    }
+    .header-moto {
+      font-size:10px;
+      width: 220px;
+    }
+  } 
+
+  .nav-menu {
+    height: 25px;
+    .nav-menu-item {
+      margin-right: 4px;
+      .nav-menu-item-link {
+        font-size: 13px;
+        font-weight: bold;
+        margin-right: 3px;
+      }
+    }
+    .nav-menu-search {
+      font-size: 14px;
+      margin-right: 5px;
+      padding-right: 20px;
+      background-image: image_url("search_320.png");
+    }
+  }
+  .content {
+    .content-intro-text {
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px;
+    }
+    .content-intro-more {
+      font-size: 10px;
+      padding: 3px 15px;
+    }
+    .content-recent {
+      width: 50%;
+      .content-recent-header {
+        font-size: 14px;
+        padding: 2px;
+      }
+      .content-recent-text {
+        font-size: 11px;
+        padding: 5px 4px;
+      }
+    }
+    .content-work-story {
+      margin: 5px 0;
+      width: 50%;
+      .content-work-story-header {
+        font-size: 14px;
+        padding: 2px;
+      }
+      .content-work-story-text {
+        font-size: 11px;
+        padding: 5px 4px;
+      }
+    }
+    @for $i from 1 through 3 {
+      $file_name: "story#{$i}_480.png";
+      .content-work-story-img.img#{$i} {
+        background-image: image_url($file_name);
+        height: image_height($file_name);
+        width: image_width($file_name);
+      }
+    }
+    .content-about, .content-settings, .content-camera, .content-boxinit {
+      float: left;
+      width: 48%;
+      height: 120px;
+    }
+    .content-about, .content-boxinit {
+      font-size: 11px;
+    }
+  }
+  .footer {
+    .footer-header {
+      margin: 11px 0;
+    }
+    .footer-text {
+      font-size: 9px;
+    }
+  }
+}
